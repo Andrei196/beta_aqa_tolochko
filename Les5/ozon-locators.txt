@@ -1,0 +1,5 @@
+Локатор кнопки Войти - <$("[data-widget=profileMenuAnonymous]")>
+Локатор кнопки Заказы - <$("[data-widget=orderInfo]")>
+Локатор ссылки OZON Job - <$$('[class="dh7"]')> Вроде бы так правильно 
+Локатор выбора валюты - <$("[data-widget=selectedCurrency]")>
+Локатор выпадашки Везде - <$(".haa0")>
