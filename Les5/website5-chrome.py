@@ -10,13 +10,13 @@ driver.get("http://the-internet.herokuapp.com/inputs")
 sleep(2)
 # Нажать на close
 lokator_num = '[type="number"]'
-serch_imput = driver.find_element(By.CSS_SELECTOR, lokator_num)
-serch_imput.send_keys("1000", Keys.RETURN)
+search_imput = driver.find_element(By.CSS_SELECTOR, lokator_num)
+search_imput.send_keys("1000", Keys.RETURN)
 sleep(2)
-serch_imput.clear()
+search_imput.clear()
 sleep(1)
-serch_imput.send_keys("SkyPro", Keys.RETURN) #не работать :3
+search_imput.send_keys("SkyPro", Keys.RETURN) #не работать :3
 sleep(2)
-serch_imput.send_keys("4", Keys.RETURN)
+search_imput.send_keys("4", Keys.RETURN)
 
-sleep(2)
+sleep(2) 

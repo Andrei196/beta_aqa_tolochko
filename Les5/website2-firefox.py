@@ -8,11 +8,11 @@ driver.set_window_size(1280, 720)
 driver.get("http://uitestingplayground.com/dynamicid")
 # Кликнуть на синюю кнопку
 lokator_b = "[class='btn btn-primary']"
-button_klick = driver.find_element(By.CSS_SELECTOR, lokator_b)
+button_click = driver.find_element(By.CSS_SELECTOR, lokator_b)
 # Запустить скрипт 3 раза
 x = 0
 for click in range(1,4):
-    button_klick.click()
+    button_click.click()
     x = x+1
 assert x == 3
 print(x)

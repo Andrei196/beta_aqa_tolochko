@@ -8,7 +8,7 @@ driver.set_window_size(1280, 720)
 driver.get("http://the-internet.herokuapp.com/entry_ad")
 sleep(5)
 # Нажать на close
-lokator_modar = "div.modal-footer"
-button_klick = driver.find_element(By.CSS_SELECTOR, lokator_modar)
-button_klick.click()
+lokator_modal = "div.modal-footer"
+button_click = driver.find_element(By.CSS_SELECTOR, lokator_modal)
+button_click.click()
 sleep(5)
