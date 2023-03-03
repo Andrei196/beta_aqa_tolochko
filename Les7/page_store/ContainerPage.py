@@ -4,7 +4,7 @@ class CheckPage:
     def __init__(self, browser):
        self.driver = browser
     
-    def get(self):
+    def open(self):
         self.driver.get("https://www.saucedemo.com/cart.html")
     
     def check(self):

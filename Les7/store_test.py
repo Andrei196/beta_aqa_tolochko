@@ -1,10 +1,10 @@
 from time import sleep
 from selenium import webdriver
-from pag_store.Authorization_store import Autorization
-from pag_store.StorePage import StorePage
-from pag_store.ContainerPage import CheckPage
-from pag_store.SwegPage import SwegPage
-from pag_store.OverviewPage import Owerview
+from page_store.Authorization_store import Autorization
+from page_store.StorePage import StorePage
+from page_store.ContainerPage import CheckPage
+from page_store.SwegPage import SwegPage
+from page_store.OverviewPage import Owerview
 
 def test_online_store():
     browser = webdriver.Chrome()
@@ -14,19 +14,19 @@ def test_online_store():
     autoPage.autorization()
     
     storPage = StorePage(browser)
-    storPage.get()
+    storPage.open()
     storPage.collection()
 
     checkPage = CheckPage(browser)
-    checkPage.get()
+    checkPage.open()
     checkPage.check()
 
     swegPage = SwegPage(browser, "Пюрешка", "Скотлетками", "111222")
-    swegPage.get()
+    swegPage.open()
     swegPage.Inform()
     swegPage.click()
 
-    total_O = Owerview(browser)
-    total_O.get()
-    total_O.quit()
-    assert total_O.total() == "Total: $58.29"   
+    total_Ower = Owerview(browser)
+    total_Ower.open()
+    total_Ower.quit()
+    assert total_Ower.total() == "Total: $58.29"   

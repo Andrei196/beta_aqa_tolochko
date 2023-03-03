@@ -7,7 +7,7 @@ class SwegPage:
        self.lname = l_name
        self.post = post_code
     
-    def get(self):
+    def open(self):
         self.driver.get("https://www.saucedemo.com/checkout-step-one.html")
     
     def Inform(self):

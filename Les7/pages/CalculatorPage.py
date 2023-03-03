@@ -21,7 +21,7 @@ class CalculatorPage:
         self.driver.find_element(By.XPATH,"//span [contains(text(),'8')]").click() 
         self.driver.find_element(By.XPATH,"//span [contains(text(),'=')]").click()
     
-    def weit_time(self): 
+    def wait_time(self): 
        WebDriverWait(self.driver, self.timer+1).until(EC.text_to_be_present_in_element_attribute((By.CSS_SELECTOR,'.screen') , 'innerHTML', '15'))
 
     def total(self):

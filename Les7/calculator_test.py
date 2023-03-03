@@ -6,7 +6,7 @@ def test_calculator():
     mainPage.open_site()
     mainPage.re_timer()
     mainPage.addition()
-    mainPage.weit_time()
+    mainPage.wait_time()
     assert mainPage.total() == '15'
     
     mainPage.quit
