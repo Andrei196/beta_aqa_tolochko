@@ -10,7 +10,7 @@ def test_online_store():
     browser = webdriver.Chrome()
     
     autoPage = Autorization(browser, "standard_user", "secret_sauce")
-    autoPage.open_site()
+    autoPage.open()
     autoPage.autorization()
     
     storPage = StorePage(browser)

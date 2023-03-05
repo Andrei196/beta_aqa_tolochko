@@ -3,7 +3,7 @@ from pages.MainPage import MainPage
 
 def test_site():
     mainPage = MainPage(webdriver.Chrome())
-    mainPage.open_site()
+    mainPage.open()
     mainPage.entry_field()
     mainPage.click_button()
     mainPage.quit

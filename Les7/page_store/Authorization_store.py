@@ -5,7 +5,7 @@ class Autorization:
         self.name = name
         self.password = password
 
-    def open_site(self):
+    def open(self):
         self.driver.implicitly_wait(4)
         self.driver.get("https://www.saucedemo.com/")
     

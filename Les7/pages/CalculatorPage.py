@@ -7,7 +7,7 @@ class CalculatorPage:
         self.driver = driver
         self.timer = timer
 
-    def open_site(self):
+    def open(self):
         self.driver.implicitly_wait(4)
         self.driver.get("https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html")
 
