@@ -11,7 +11,7 @@ def test_get_active_companies():
     filtred_list = api.get_company_list(params_to_add={'active':'true'})
     assert len(full_list) > len(filtred_list)
 
-def test_add_new():
+def test_add_new_companies():
     body = api.get_company_list()
     len_before = len(body)
     
@@ -41,7 +41,7 @@ def test_get_one_company():
     assert new_company["description"] == descr
     assert new_company["isActive"] ==True
 
-def test_edit():
+def test_edit_companies():
     name = 'Company to be edited'
     descr = 'Edit me'
     result = api.create_company(name,descr)
@@ -55,7 +55,7 @@ def test_edit():
     assert edited["description"] == new_descr
     assert edited["isActive"] ==True
 
-def test_delete():
+def test_delete_companies():
     name = 'Company to be deleted'
     result = api.create_company(name)
     new_id = result["id"]
@@ -69,7 +69,7 @@ def test_delete():
     # body = api.get_company_list()
     # assert body[-1]["id"] != new_id
 
-def test_deactivate():
+def test_deactivate_companies():
     name = "Company to be deactivated"
     result = api.create_company(name)
     new_id = result["id"]
@@ -77,7 +77,7 @@ def test_deactivate():
     body = api.set_active_state(new_id, False)
     assert body["isActive"] == False
 
-def test_deactivate_and_activate_back():
+def test_deactivate_and_activate_back_companies():
     name = "Company to be activated"
     result = api.create_company(name)
     new_id = result["id"]
