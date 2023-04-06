@@ -32,7 +32,7 @@ class CompanyApi:
         resp = requests.post(self.url+'/company/', json=company, headers=my_headers)
         return resp.json()
    
-    def edit(self, new_id, new_name, new_descr):
+    def edit_company(self, new_id, new_name, new_descr):
         my_headers ={}
         my_headers["x-client-token"] = self.get_token()
         
@@ -44,14 +44,14 @@ class CompanyApi:
         resp =requests.patch(self.url+'/company/'+ str(new_id), headers=my_headers, json=company)
         return resp.json()
     
-    def delete(self, id):
+    def delete_company(self, id):
         my_headers ={}
         my_headers["x-client-token"] = self.get_token()
         
         resp =requests.get(self.url+'/company/delete/'+ str(id), headers=my_headers)
         return resp.json()
     
-    def set_active_state(self,id, isActive):
+    def set_active_state_company(self,id, isActive):
         my_headers ={}
         my_headers["x-client-token"] = self.get_token()
         resp =requests.patch(self.url+'/company/status/'+ str(id), headers=my_headers, json= {'isActive': isActive})

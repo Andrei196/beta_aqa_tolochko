@@ -28,13 +28,13 @@ class CompanySQL:
     def get_active_companies(self):
         return self.__db.execute(self.__scripts["select only active"]).fetchall()
     
-    def delete(self, id):
+    def delete_company(self, id):
         self.__db.execute(self.__scripts["delete by id"], id_to_delete = id)
 
-    def create(self, name):
+    def create_company(self, name):
         self.__db.execute(self.__scripts["insert new"], new_name = name)
     
-    def get_max_id(self):
+    def get_max_id_company(self):
         return self.__db.execute(self.__scripts["get max id"]).fetchall()[0][0]
     
     def get_company_employee(self):
@@ -48,9 +48,3 @@ class CompanySQL:
     
     def delete_employee(self,id):
         self.__db.execute(self.__scripts["delete employee"], id_to_delete = id)
-    
-
-
-
-
-
