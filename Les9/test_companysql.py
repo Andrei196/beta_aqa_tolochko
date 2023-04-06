@@ -32,8 +32,6 @@ def test_new_employee():
     assert new_employee["id"] == new_id
     assert len(new_employee) == 1
 
-
-
 def test_employee_id():
     name = 'КиШ'
     db.create_company(name)
