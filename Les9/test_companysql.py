@@ -36,6 +36,54 @@ def test_new_employee():
     assert new_employee["id"] == new_id
     assert len(new_employee) == 1
 
+def test_new_employee_None():
+    name = 'КиШ'
+    company_db.create_company(name)
+    max_id = company_db.get_max_id_company()
+    new_company = company_api.get_company(max_id)
+    company_id = new_company
+    
+    new_f_name = ""
+    new_l_name = ""
+    mew_m_name = ""
+    new_phone = ""
+    
+    new_employee = employee_api.post_new_employee(company_id, new_f_name, new_l_name, mew_m_name, new_phone)
+    new_id = new_employee["id"]
+    employee_db.delete_employee(new_id)
+    company_db.delete_company(max_id)
+    
+    assert new_company["id"] == max_id
+    assert new_company["name"] == name
+    assert new_company["isActive"] ==True
+    
+    assert new_employee["id"] == new_id
+    assert len(new_employee) == 1
+
+def test_new_employee_Folse():
+    name = 'КиШ'
+    company_db.create_company(name)
+    max_id = company_db.get_max_id_company()
+    new_company = company_api.get_company(max_id)
+    company_id = new_company
+    
+    new_f_name = "☺"
+    new_l_name = "☻"
+    mew_m_name = "♥"
+    new_phone = "♦♣♠♥•◘○☺☻♥♫↓$:/"
+    
+    new_employee = employee_api.post_new_employee(company_id, new_f_name, new_l_name, mew_m_name, new_phone)
+    new_id = new_employee["id"]
+    employee_db.delete_employee(new_id)
+    company_db.delete_company(max_id)
+    
+    assert new_company["id"] == max_id
+    assert new_company["name"] == name
+    assert new_company["isActive"] ==True
+    
+    assert new_employee["id"] == new_id
+    assert len(new_employee) == 1
+
 def test_employee_id():
     name = 'КиШ'
     company_db.create_company(name)
@@ -89,3 +137,51 @@ def test_edit_employee():
     assert edit_employee["email"] == "knazz@gmail.com"
     assert edit_employee["isActive"] == True
     assert edit_employee["url"] == new_url
+
+def test_edit_employee_none():
+    name = 'КиШ'
+    company_db.create_company(name)
+    max_id = company_db.get_max_id_company()
+    company = company_api.get_company(max_id)
+    new_f_name = ""
+    new_l_name = ""
+    mew_m_name = ""
+    new_phone = ""
+    new_email = ""
+    new_url = ""
+    new_company =company["id"]
+    employee_db.new_employee(new_f_name, new_l_name, mew_m_name, new_phone, new_email, new_url, new_company)
+    new_id = employee_db.employee_max_id()
+
+    edit_employee =employee_api.edit_employee_none(new_id)
+    employee_db.delete_employee(new_id)
+    company_db.delete_company(max_id)
+    
+    assert edit_employee["id"] == new_id
+    assert edit_employee["email"] == ""
+    assert edit_employee["isActive"] == True
+    assert edit_employee["url"] == ""
+
+def test_edit_employee_folse():
+    name = 'КиШ'
+    company_db.create_company(name)
+    max_id = company_db.get_max_id_company()
+    company = company_api.get_company(max_id)
+    new_f_name = "☺"
+    new_l_name = "Князев"
+    mew_m_name = "Сергеевич"
+    new_phone = "88005553535"
+    new_email = "Kish@gmail.com"
+    new_url = "string"
+    new_company =company["id"]
+    employee_db.new_employee(new_f_name, new_l_name, mew_m_name, new_phone, new_email, new_url, new_company)
+    new_id = employee_db.employee_max_id()
+
+    edit_employee =employee_api.edit_employee_folse(new_id)
+    employee_db.delete_employee(new_id)
+    company_db.delete_company(max_id)
+    
+    assert edit_employee["id"] == new_id
+    assert edit_employee["email"] == "#$$098^*&"
+    assert edit_employee["isActive"] == True
+    assert edit_employee["url"] == "♣"

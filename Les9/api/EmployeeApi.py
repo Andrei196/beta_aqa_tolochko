@@ -49,3 +49,29 @@ class EmployeeApi:
         }
         resp = requests.patch(self.url+'/employee/'+str(id),headers=my_headers, json=new_employ)
         return resp.json()
+    
+    def edit_employee_none(self,id):
+        my_headers ={}
+        my_headers["x-client-token"] = self.get_token()
+
+        new_employ = {
+            "lastName": "",
+            "email": "",
+            "url": "",
+            "isActive": True
+        }
+        resp = requests.patch(self.url+'/employee/'+str(id),headers=my_headers, json=new_employ)
+        return resp.json()
+    
+    def edit_employee_folse(self,id):
+        my_headers ={}
+        my_headers["x-client-token"] = self.get_token()
+
+        new_employ = {
+            "lastName": "$",
+            "email": "#$$098^*&",
+            "url": "♣",
+            "isActive": True
+        }
+        resp = requests.patch(self.url+'/employee/'+str(id),headers=my_headers, json=new_employ)
+        return resp.json()
