@@ -1,13 +1,19 @@
+import allure
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 class MainPage:
     def __init__(self, driver):
         self.driver = driver
 
-    def open(self):
+    allure.step("Открыть сайт 'https://bonigarcia.dev/selenium-webdriver-java/data-types.html'")
+    def open(self)->None:
+        """Функция выполняет открытие страницы"""
         self.driver.implicitly_wait(4)
         self.driver.get('https://bonigarcia.dev/selenium-webdriver-java/data-types.html')
     
-    def entry_field(self):
+    allure.step("Заполнить строки: Имя, Фамилия, Адрес, Город, Страна, Должнось, Компания.")
+    def entry_field(self)->None:
+        """Функция выполняет ввод данных"""
         self.driver.find_element(By.CSS_SELECTOR, '[name="first-name"]').send_keys("Иван")
         self.driver.find_element(By.CSS_SELECTOR, '[name="last-name"]').send_keys("Петров")
         self.driver.find_element(By.CSS_SELECTOR, '[name="address"]').send_keys("Ленина, 55-3")
@@ -19,29 +25,52 @@ class MainPage:
         self.driver.find_element(By.CSS_SELECTOR, '[name="job-position"]').send_keys("QA")
         self.driver.find_element(By.CSS_SELECTOR, '[name="company"]').send_keys("SkyPro")
     
-    def click_button(self):
+    allure.step("Нажать кнопку 'SUBMIT'")
+    def click_button(self)->None:
+        """Функция выполняет нажатие на кнопку SUBMIT"""
         self.driver.find_element(By.CSS_SELECTOR, '[class="btn btn-outline-primary mt-3"]').click()
     
-    def background_first_name(self):
+    allure.step("Проверить цвет заднего фона 'Имя'")
+    def background_first_name(self)->str:
+        """Функция выполняет проверку цвета заднего фона ИМЯ"""
         return self.driver.find_element(By.CSS_SELECTOR,'#first-name').value_of_css_property("background-color")
-    def background_last_name(self):
+    
+    allure.step("Проверить цвет заднего фона 'Фамилия'")
+    def background_last_name(self)->str:
+        """Функция выполняет проверку цвета заднего фона ФАМИЛИЯ"""
         return self.driver.find_element(By.CSS_SELECTOR,'#last-name').value_of_css_property("background-color")
-    def background_address(self):
+    
+    allure.step("Проверить цвет заднего фона 'Адрес'")
+    def background_address(self)->str:
+        """Функция выполняет проверку цвета заднего фона АДРЕС"""
         return self.driver.find_element(By.CSS_SELECTOR,'#address').value_of_css_property("background-color")
-    def backgroundcolor_zip_code(self):
+    
+    allure.step("Проверить цвет заднего фона 'Индекс'")
+    def backgroundcolor_zip_code(self)->str:
+        """Функция выполняет проверку цвета заднего фона ИНДЕКС"""
         return self.driver.find_element(By.CSS_SELECTOR,'#zip-code').value_of_css_property("background-color")  
-    def background_mail(self):
-        assert self.driver.find_element(By.CSS_SELECTOR, '#e-mail').value_of_css_property("background-color")
-    def background_phone(self):
-        assert self.driver.find_element(By.CSS_SELECTOR, '#phone').value_of_css_property("background-color")
-    def background_city(self):
+    
+    allure.step("Проверить цвет заднего фона 'Город'")
+    def background_city(self)->str:
+        """Функция выполняет проверку цвета заднего фона ГОРОД"""
         return self.driver.find_element(By.CSS_SELECTOR,'#city').value_of_css_property("background-color")
-    def background_country(self):
+    
+    allure.step("Проверить цвет заднего фона 'Страна'")
+    def background_country(self)->str:
+        """Функция выполняет проверку цвета заднего фона СТРАНА"""
         return self.driver.find_element(By.CSS_SELECTOR,'#country').value_of_css_property("background-color")
-    def background_position(self):
+    
+    allure.step("Проверить цвет заднего фона 'Должность'")
+    def background_position(self)->str:
+        """Функция выполняет проверку цвета заднего фона ДОЛЖНОМТЬ"""
         return self.driver.find_element(By.CSS_SELECTOR,'#job-position').value_of_css_property("background-color")
-    def background_company(self):
+    
+    allure.step("Проверить цвет заднего фона 'Компания'")
+    def background_company(self)->str:
+        """Функция выполняет проверку цвета заднего фона НАЗВАНИЕ КОМПАНИИ"""
         return self.driver.find_element(By.CSS_SELECTOR,'#company').value_of_css_property("background-color")
 
-    def quit(self):
+    allure.step("Закрыть страницу")
+    def quit(self)->None:
+        """Функция выполняет закрытие страницы"""
         self.driver.quit
